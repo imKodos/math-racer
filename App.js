@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet,SafeAreaView, Text, View, KeyboardAvoidingView, TextInput } from "react-native";
 
 export default function App() {
   const [input, setInput] = React.useState("");
@@ -12,9 +12,15 @@ export default function App() {
 //if wrong, create obstacle?
 //if wrong, next input clears whole textinput, or just doesnt allow the wrong digit?
   return (
-    <View style={styles.container}>
-      <Text>{`4 + 4`}</Text>
-      <StatusBar style="auto" />
+    <SafeAreaView style={styles.container}>
+       <StatusBar style="auto" />
+       <View style={styles.equationContainer}>
+          <Text style={styles.equation}>{`4 + 46`}</Text>
+      </View> 
+      <View style={styles.raceContainer}>
+
+      </View>
+      <View style={styles.inputContainer}>
       <TextInput
         style={styles.input}
         onChangeText={(text) => setInput(text)}
@@ -23,7 +29,8 @@ export default function App() {
         keyboardAppearance="dark"
         // autoFocus={true}
       ></TextInput>
-    </View>
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -33,12 +40,28 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     borderWidth: 1,
     borderRadius: 20,
-    padding: 10
+    padding: 10,
+  },
+  inputContainer:{
+backgroundColor: "orange",
+flex:1
+  },
+  equation:{
+    alignSelf: "center",
+    backgroundColor: "green"
+  },
+  equationContainer:{
+    flex:0.5,
+    backgroundColor: "yellow"
   },
   container: {
     flex: 1,
     backgroundColor: "dodgerblue",
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
+  raceContainer:{
+    backgroundColor:"white",
+    flex:2
+  }
 });
