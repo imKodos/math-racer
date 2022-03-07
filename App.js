@@ -12,7 +12,9 @@ import {
 
 export default function App() {
   const [input, setInput] = React.useState("");
-  const eq= `4 + 49`;
+  const eq1= `12`;
+  const eq2 =`2`;
+  const op = `x`;
 
   // alert(`message: ${input}`);
   //todo look at https://www.freecodecamp.org/news/how-to-make-your-react-native-app-respond-gracefully-when-the-keyboard-pops-up-7442c1535580/
@@ -28,9 +30,25 @@ export default function App() {
       <SafeAreaView style={styles.safeAreaContainer}>
         <StatusBar hidden={true} />
         <View style={styles.equationContainer}>
-          <Text style={styles.equation}>{eq}</Text>
-          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -2, height: -2}}]}>{eq}</Text> 
-        </View>
+          <View style={{marginRight:10}}>
+          <Text style={styles.equation}>{eq1}</Text>
+          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -1, height: -1}}]}>{eq1}</Text> 
+          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -1, height: 1}}]}>{eq1}</Text>
+          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: 1, height: -1}}]}>{eq1}</Text> 
+          </View>
+          <View>
+          <Text style={styles.equation}>{op}</Text>
+          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -1, height: -1}}]}>{op}</Text> 
+          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -1, height: 1}}]}>{op}</Text>
+          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: 1, height: -1}}]}>{op}</Text> 
+          </View>
+          <View style={{marginLeft:10}}>
+          <Text style={styles.equation}>{eq2}</Text>
+          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -1, height: -1}}]}>{eq2}</Text> 
+          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -1, height: 1}}]}>{eq2}</Text>
+          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: 1, height: -1}}]}>{eq2}</Text> 
+          </View>
+          </View>
         <View style={styles.raceContainer}></View>
         <View style={styles.inputContainer}>
           <View style={styles.outerInput1}>
@@ -80,7 +98,7 @@ const styles = StyleSheet.create({
     borderColor: "white",
     borderWidth: 3,
     borderRadius: 10,
-    padding: 10,
+    padding: 5,
     marginLeft: -5,
 
     //text:
@@ -107,19 +125,29 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  equation: {
-    alignSelf: "center",
-    color: "yellow",
-    fontSize: 32,
-    textShadowColor: "red",
-    textShadowRadius: 1,
-    textShadowOffset: { width: 2, height: 2},
-    marginVertical: 4,
-    // backgroundColor: "green",
-  },
+  // equation: {
+  //   alignSelf: "center",
+  //   color: "yellow",
+  //   fontSize: 32,
+  //   textShadowColor: "red",
+  //   textShadowRadius: 1,
+  //   textShadowOffset: { width: 2, height: 2},
+  //   marginVertical: 4,
+  //   // backgroundColor: "green",
+  // },
+  equation: { 
+    fontSize: 70, 
+    color: 'midnightblue', 
+    textShadowColor: 'cyan', 
+    textShadowRadius: 1, 
+    textShadowOffset: { 
+    width: 1,
+    height: 1,
+  }}, 
   equationContainer: {
-    flex: 0.5,
     // backgroundColor: "yellow",
+    flex: 1,
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -136,6 +164,5 @@ const styles = StyleSheet.create({
   },
   abs: {
     position: 'absolute',
-     top: 0, left: 0, right: 0, bottom: 0
    }
 });
