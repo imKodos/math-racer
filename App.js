@@ -27,18 +27,22 @@ export default function App() {
       <SafeAreaView style={styles.safeAreaContainer}>
         <StatusBar hidden={true} />
         <View style={styles.equationContainer}>
-          <Text style={styles.equation}>{`4 + 46`}</Text>
+          <Text style={styles.equation}>{`4 + 48`}</Text>
         </View>
         <View style={styles.raceContainer}></View>
         <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            onChangeText={(text) => setInput(text)}
-            value={input}
-            keyboardType="number-pad"
-            keyboardAppearance="dark"
-            autoFocus={true}
-          ></TextInput>
+          <View style={styles.outerInput1}>
+            <View style={styles.outerInput2}>
+              <TextInput
+                style={styles.input}
+                onChangeText={(text) => setInput(text)}
+                value={input}
+                keyboardType="number-pad"
+                keyboardAppearance="dark"
+                autoFocus={true}
+              ></TextInput>
+            </View>
+          </View>
         </View>
       </SafeAreaView>
     </KeyboardAvoidingView>
@@ -47,35 +51,55 @@ export default function App() {
 
 const styles = StyleSheet.create({
   input: {
-    width: 250,
-    borderColor: "gray",
-    borderWidth: 1,
-    borderRadius: 20,
+    width: 308,
+    borderColor: "white",
+    borderWidth: 2,
+    borderRadius: 10,
     padding: 10,
+    marginLeft: -4
+  },
+  outerInput1: {
+    width: 300,
+    borderColor: "cyan",
+    borderWidth: 2,
+    borderRadius: 10,
+  },
+  outerInput2: {
+    width: 304,
+    borderColor: "hotpink",
+    borderWidth: 2,
+    borderRadius: 10,
+   marginLeft:-4
   },
   inputContainer: {
-    backgroundColor: "orange",
+    backgroundColor: "midnightblue",
     flex: 0.5,
     alignItems: "center",
     justifyContent: "center",
   },
   equation: {
+    position: "absolute",
     alignSelf: "center",
-    backgroundColor: "green",
+    color: "yellow",
+    fontSize: 32,
+    textShadowColor: "red",
+    textShadowRadius: 40,
+    textShadowOffset: { width: 1, height: 1 },
+    marginVertical: 4,
+    // backgroundColor: "green",
   },
   equationContainer: {
     flex: 0.5,
-    backgroundColor: "yellow",
+    // backgroundColor: "yellow",
     alignItems: "center",
     justifyContent: "center",
   },
   container: {
     flex: 1,
-    backgroundColor: "dodgerblue",
+    backgroundColor: "midnightblue",
   },
   safeAreaContainer: {
     flex: 1,
-    backgroundColor: "yellow",
   },
   raceContainer: {
     backgroundColor: "white",
