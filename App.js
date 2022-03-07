@@ -12,6 +12,7 @@ import {
 
 export default function App() {
   const [input, setInput] = React.useState("");
+  const eq= `4 + 49`;
 
   // alert(`message: ${input}`);
   //todo look at https://www.freecodecamp.org/news/how-to-make-your-react-native-app-respond-gracefully-when-the-keyboard-pops-up-7442c1535580/
@@ -27,7 +28,8 @@ export default function App() {
       <SafeAreaView style={styles.safeAreaContainer}>
         <StatusBar hidden={true} />
         <View style={styles.equationContainer}>
-          <Text style={styles.equation}>{`4 + 48`}</Text>
+          <Text style={styles.equation}>{eq}</Text>
+          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -2, height: -2}}]}>{eq}</Text> 
         </View>
         <View style={styles.raceContainer}></View>
         <View style={styles.inputContainer}>
@@ -101,13 +103,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   equation: {
-    position: "absolute",
     alignSelf: "center",
     color: "yellow",
     fontSize: 32,
     textShadowColor: "red",
-    textShadowRadius: 40,
-    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1,
+    textShadowOffset: { width: 2, height: 2},
     marginVertical: 4,
     // backgroundColor: "green",
   },
@@ -128,4 +129,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flex: 4,
   },
+  abs: {
+    position: 'absolute',
+     top: 0, left: 0, right: 0, bottom: 0
+   }
 });
