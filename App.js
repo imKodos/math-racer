@@ -50,6 +50,29 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+//   input: {
+//     width: 280,
+//     borderColor: "white",
+//     borderWidth: 2,
+//     borderRadius: 10,
+//     padding: 10,
+//     marginLeft: 3,
+//     marginVertical:-2
+//   },
+//   outerInput1: {
+//     width: 300,
+//     borderColor: "cyan",
+//     borderWidth: 2,
+//     borderRadius: 10,
+//   },
+//   outerInput2: {
+//     width: 290,
+//     borderColor: "hotpink",
+//     borderWidth: 2,
+//     borderRadius: 10,
+//     marginLeft:3,
+//     marginVertical:-2
+//   },
   input: {
     width: 308,
     borderColor: "white",
