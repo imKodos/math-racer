@@ -9,11 +9,12 @@ import {
   TextInput,
   Platform,
 } from "react-native";
+import TextWithOutline from "./components/TextWithOutline";
 
 export default function App() {
   const [input, setInput] = React.useState("");
-  const eq1= `12`;
-  const eq2 =`2`;
+  const eq1 = `12`;
+  const eq2 = `2`;
   const op = `x`;
 
   // alert(`message: ${input}`);
@@ -30,25 +31,16 @@ export default function App() {
       <SafeAreaView style={styles.safeAreaContainer}>
         <StatusBar hidden={true} />
         <View style={styles.equationContainer}>
-          <View style={{marginRight:10}}>
-          <Text style={styles.equation}>{eq1}</Text>
-          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -1, height: -1}}]}>{eq1}</Text> 
-          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -1, height: 1}}]}>{eq1}</Text>
-          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: 1, height: -1}}]}>{eq1}</Text> 
+          <View style={{ marginRight: 10 }}>
+            <TextWithOutline text={eq1}></TextWithOutline>
           </View>
           <View>
-          <Text style={styles.equation}>{op}</Text>
-          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -1, height: -1}}]}>{op}</Text> 
-          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -1, height: 1}}]}>{op}</Text>
-          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: 1, height: -1}}]}>{op}</Text> 
+            <TextWithOutline text={op}></TextWithOutline>
           </View>
-          <View style={{marginLeft:10}}>
-          <Text style={styles.equation}>{eq2}</Text>
-          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -1, height: -1}}]}>{eq2}</Text> 
-          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: -1, height: 1}}]}>{eq2}</Text>
-          <Text style={[styles.equation, styles.abs, {textShadowOffset: {width: 1, height: -1}}]}>{eq2}</Text> 
+          <View style={{ marginLeft: 10 }}>
+            <TextWithOutline text={eq2}></TextWithOutline>
           </View>
-          </View>
+        </View>
         <View style={styles.raceContainer}></View>
         <View style={styles.inputContainer}>
           <View style={styles.outerInput1}>
@@ -135,15 +127,16 @@ const styles = StyleSheet.create({
   //   marginVertical: 4,
   //   // backgroundColor: "green",
   // },
-  equation: { 
-    fontSize: 70, 
-    color: 'midnightblue', 
-    textShadowColor: 'cyan', 
-    textShadowRadius: 1, 
-    textShadowOffset: { 
-    width: 1,
-    height: 1,
-  }}, 
+  equation: {
+    fontSize: 70,
+    color: "midnightblue",
+    textShadowColor: "cyan",
+    textShadowRadius: 1,
+    textShadowOffset: {
+      width: 1,
+      height: 1,
+    },
+  },
   equationContainer: {
     // backgroundColor: "yellow",
     flex: 1,
@@ -163,6 +156,6 @@ const styles = StyleSheet.create({
     flex: 4,
   },
   abs: {
-    position: 'absolute',
-   }
+    position: "absolute",
+  },
 });
