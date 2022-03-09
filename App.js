@@ -7,15 +7,58 @@ import {
   View,
   KeyboardAvoidingView,
   TextInput,
-  Platform,
 } from "react-native";
 import TextWithOutline from "./components/TextWithOutline";
 
 export default function App() {
   const [input, setInput] = React.useState("");
-  const eq1 = `12`;
-  const eq2 = `2`;
-  const op = `x`;
+  const [curLevel, setCurLevel] = React.useState(0);
+  const [eq1, setEq1]= React.useState(0);
+  const [eq2, setEq2]= React.useState(0);
+  const [op, setOp]= React.useState("");
+  const [ans, setAns] = React.useState(0);
+
+  React.useEffect(() => {
+    buildEquations();
+  }, [])
+
+  const buildEquations = () => {
+    //get op first
+    //addition == 1
+    //sub == 2
+    //multi == 3
+    //division == 4
+    var opSel = Math.floor(Math.random() * 2) + 1 
+    if(curLevel<6){ //1-5 is add or sub
+     setOp(opSel==1? `+`:`-`)
+    }
+
+    var num1 = Math.floor(Math.random() * 99) + 1 
+    var num2 = Math.floor(Math.random() * 99) + 1 
+
+    if(opSel==2){ //if op is sub, make sure num1 is the greater num
+      if(num2>num1){
+        var tempNum = num2;
+        num2=num1;
+        num1=tempNum;
+      }
+    }
+    setEq1(num1);
+    setEq2(num2);
+
+   //set the answer:
+   if(opSel==1){
+     setAns(num1+num2);
+   }else if(opSel==2){
+    setAns(num1-num2);
+   }
+  }
+
+  //the idea behind levels is:
+  //1-5 is 2 digit max addition or subtraction
+  //6-10 is 2x1 digit multiplication or division
+  //11-15 is 3-4 digit addition or subtraction 
+  //16-17 is 2 digit multiplication and then division [add a time multiplier to guesses if incorrect so they cant keep guessing ]
 
   // alert(`message: ${input}`);
   //todo look at https://www.freecodecamp.org/news/how-to-make-your-react-native-app-respond-gracefully-when-the-keyboard-pops-up-7442c1535580/
@@ -41,7 +84,11 @@ export default function App() {
             <TextWithOutline text={eq2}></TextWithOutline>
           </View>
         </View>
-        <View style={styles.raceContainer}></View>
+        <View style={styles.raceContainer}>
+          <Text>
+            {ans}
+          </Text>
+        </View>
         <View style={styles.inputContainer}>
           <View style={styles.outerInput1}>
             <View style={styles.outerInput2}>
