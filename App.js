@@ -9,6 +9,7 @@ import {
   TextInput,
 } from "react-native";
 import TextWithOutline from "./components/TextWithOutline";
+import Racers from "./components/Racers";
 
 export default function App() {
   const [input, setInput] = React.useState("");
@@ -85,9 +86,7 @@ export default function App() {
           </View>
         </View>
         <View style={styles.raceContainer}>
-          <Text>
-            {ans}
-          </Text>
+          <Racers></Racers>
         </View>
         <View style={styles.inputContainer}>
           <View style={styles.outerInput1}>
@@ -201,8 +200,6 @@ const styles = StyleSheet.create({
   raceContainer: {
     backgroundColor: "white",
     flex: 4,
-  },
-  abs: {
-    position: "absolute",
-  },
+  }, 
+ 
 });
