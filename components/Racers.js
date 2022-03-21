@@ -1,45 +1,54 @@
-import React from 'react'
-import {
-    StyleSheet,
-    Text,
-    View,
-  } from "react-native";
-import Ghost from './Ghost';
-import P1 from './P1';
-import P2 from './P2';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import Ghost from "./Ghost";
+import P1 from "./P1";
+import P2 from "./P2";
 
 function Racers() {
-    
   return (
-   <View style={styles.racerContainer}>
-         <View style={styles.crowdTop}>
-          <Text>
-            {/* {ans} */}
-            {`   CROWD GO HERE`}
-          </Text>
-          </View>
-        <Ghost></Ghost>
-        <P1></P1>
-        <P2></P2>    
-   </View>
-   
-  )
+    <View style={styles.racerContainer}>
+      <View style={styles.crowdTop}>
+        <Text>
+          {/* {ans} */}
+          {`   CROWD GO HERE`}
+        </Text>
+      </View>
+      <Ghost></Ghost>
+      <P1></P1>
+      <P2></P2>
+    </View>
+  );
 }
 
-//todo -- figure out how to put the racer on top of the start line
 //todo -- pass in data from app (should control the calculations) to each racer, have them move accordingly
 //todo -- implement a choose your own animation for moving
 
 // const styles = StyleSheet.create({
-    const styles =  StyleSheet.create({
-    racerContainer:{
-        flex:1,
-        flexDirection: 'row',
-    },crowdTop: {
-      position: "absolute",
-      zIndex: 1
-    },
-   
-  });
+const styles = StyleSheet.create({
+  racerContainer: {
+    flex: 1,
+    flexDirection: "row",
+  },
+  crowdTop: {
+    position: "absolute",
+    zIndex: 1,
+    width: "100%",
+    backgroundColor: "yellow",
+  },
+  finishLine: {
+    position: "absolute",
+    zIndex: 1,
+    width: "100%",
+    top: 20,
+    backgroundColor: "red",
+  },
+  startLine: {
+    position: "absolute",
+    zIndex: -1,
+    backgroundColor: "red",
+    width: "100%",
+    bottom: 20,
+  },
+});
 
-export default Racers
+export default Racers;
