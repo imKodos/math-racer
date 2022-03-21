@@ -4,7 +4,7 @@ import FinishLine from "./FinishLine";
 import StartLine from "./StartLine";
 
 function P1() {
-  const racerLevel = "90%"; //tbd based on which answer the person is
+  const racerLevel = "95%"; //tbd based on which answer the person is
   return (
     <View style={styles.mainRacerContainer}>
       <StartLine></StartLine>
