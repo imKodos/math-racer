@@ -10,6 +10,9 @@ function Ghost() {
       <FinishLine />
       <View style={[styles.ghostRacer, { top: racerLevel }]}></View>
       <StartLine />
+      <View style={styles.crowdRight}>
+        <Text>{` OR - CROWD - GO - HERE`}</Text>
+      </View>
     </View>
   );
 }
@@ -24,6 +27,15 @@ const styles = StyleSheet.create({
     width: 20,
     backgroundColor: "grey",
     top: "90%",
+  },
+  crowdRight: {
+    position: "absolute",
+    zIndex: 1,
+    height: "100%",
+    width: "10%",
+    top: 20,
+    alignSelf: "flex-end",
+    backgroundColor: "yellow",
   },
 });
 
