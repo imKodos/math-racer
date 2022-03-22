@@ -4,7 +4,7 @@ import Ghost from "./Ghost";
 import P1 from "./P1";
 import P2 from "./P2";
 
-function Racers() {
+function Racers(props) {
   return (
     <View style={styles.racerContainer}>
       <View style={styles.crowdTop}>
@@ -14,7 +14,7 @@ function Racers() {
         </Text>
       </View>
       <Ghost></Ghost>
-      <P1></P1>
+      <P1 curLevel={props.curLevel}></P1>
       <P2></P2>
     </View>
   );

@@ -86,7 +86,7 @@ export default function App() {
           </View>
         </View>
         <View style={styles.raceContainer}>
-          <Racers></Racers>
+          <Racers curLevel={curLevel}></Racers>
         </View>
         <View style={styles.inputContainer}>
           <View style={styles.outerInput1}>
@@ -108,29 +108,6 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  //   input: {
-  //     width: 280,
-  //     borderColor: "white",
-  //     borderWidth: 2,
-  //     borderRadius: 10,
-  //     padding: 10,
-  //     marginLeft: 3,
-  //     marginVertical:-2
-  //   },
-  //   outerInput1: {
-  //     width: 300,
-  //     borderColor: "cyan",
-  //     borderWidth: 2,
-  //     borderRadius: 10,
-  //   },
-  //   outerInput2: {
-  //     width: 290,
-  //     borderColor: "hotpink",
-  //     borderWidth: 2,
-  //     borderRadius: 10,
-  //     marginLeft:3,
-  //     marginVertical:-2
-  //   },
   input: {
     width: 308,
     borderColor: "white",
@@ -163,16 +140,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  // equation: {
-  //   alignSelf: "center",
-  //   color: "yellow",
-  //   fontSize: 32,
-  //   textShadowColor: "red",
-  //   textShadowRadius: 1,
-  //   textShadowOffset: { width: 2, height: 2},
-  //   marginVertical: 4,
-  //   // backgroundColor: "green",
-  // },
   equation: {
     fontSize: 70,
     color: "midnightblue",

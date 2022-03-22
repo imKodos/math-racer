@@ -3,8 +3,14 @@ import { StyleSheet, Text, View } from "react-native";
 import FinishLine from "./FinishLine";
 import StartLine from "./StartLine";
 
-function P1() {
-  const racerLevel = "95%"; //tbd based on which answer the person is
+function P1(props) {
+  const racerLevel = getLevelPercent(props.curLevel); //tbd based on which answer the person is
+  
+  function getLevelPercent(level){ //if 20 levels, each level is 4.5%
+    const levelPercent=95-(level*4.5);
+    return (levelPercent+"%");
+  }
+  
   return (
     <View style={styles.mainRacerContainer}>
       <StartLine></StartLine>
