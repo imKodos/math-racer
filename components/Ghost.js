@@ -10,9 +10,9 @@ function Ghost() {
       <FinishLine />
       <View style={[styles.ghostRacer, { top: racerLevel }]}></View>
       <StartLine />
-      <View style={styles.crowdRight}>
-        <Text>{` OR - CROWD - GO - HERE`}</Text>
-      </View>
+      {/* <View style={styles.crowdRight}> */}
+        {/* <Text>{` OR - CROWD - GO - HERE`}</Text> */}
+      {/* </View> */}
     </View>
   );
 }

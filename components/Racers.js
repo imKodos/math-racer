@@ -9,13 +9,15 @@ function Racers(props) {
     <View style={styles.racerContainer}>
       <View style={styles.crowdTop}>
         <Text>
-          {/* {ans} */}
+          {props.answer}
           {`   CROWD GO HERE`}
+          {props.timer}
+          
         </Text>
       </View>
       <Ghost></Ghost>
       <P1 curLevel={props.curLevel}></P1>
-      <P2></P2>
+      {/* <P2></P2> */}
     </View>
   );
 }

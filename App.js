@@ -7,21 +7,49 @@ import {
   View,
   KeyboardAvoidingView,
   TextInput,
+  Keyboard,
 } from "react-native";
 import TextWithOutline from "./components/TextWithOutline";
 import Racers from "./components/Racers";
+import GameOver from "./components/GameOver";
 
 export default function App() {
   const [input, setInput] = React.useState("");
-  const [curLevel, setCurLevel] = React.useState(0);
+  const [curLevel, setCurLevel] = React.useState(18);
   const [eq1, setEq1]= React.useState(0);
   const [eq2, setEq2]= React.useState(0);
   const [op, setOp]= React.useState("");
   const [ans, setAns] = React.useState(0);
+  const [seconds, setSeconds] = React.useState(0);
+  const [gameOver, setGameOver] = React.useState(false);
+
+  React.useEffect(() => {
+    if(!gameOver){
+      const interval = setInterval(() => {
+        setSeconds((seconds) => seconds + 1);
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [gameOver]);
 
   React.useEffect(() => {
     buildEquations();
   }, [])
+
+  React.useEffect(() => {
+    if(!gameOver){
+      if(input!= "" && input==ans){
+        setCurLevel(curLevel+1);
+        if(curLevel+1 == 20){ //reached the finish line
+          setGameOver(true);
+          Keyboard.dismiss();
+        }else{
+          setInput("");
+          buildEquations();
+        }
+      }
+    }
+  }, [input])
 
   const buildEquations = () => {
     //get op first
@@ -73,6 +101,7 @@ export default function App() {
       behavior={Platform.OS === "ios" ? "padding" : null}
     >
       <SafeAreaView style={styles.safeAreaContainer}>
+        {gameOver && <GameOver/>}
         <StatusBar hidden={true} />
         <View style={styles.equationContainer}>
           <View style={{ marginRight: 10 }}>
@@ -86,7 +115,7 @@ export default function App() {
           </View>
         </View>
         <View style={styles.raceContainer}>
-          <Racers curLevel={curLevel}></Racers>
+          <Racers curLevel={curLevel} timer={seconds} answer={ans}></Racers>
         </View>
         <View style={styles.inputContainer}>
           <View style={styles.outerInput1}>
@@ -98,6 +127,7 @@ export default function App() {
                 keyboardType="number-pad"
                 keyboardAppearance="dark"
                 autoFocus={true}
+                editable={!gameOver}
               ></TextInput>
             </View>
           </View>
