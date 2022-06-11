@@ -12,7 +12,7 @@ function FinishLine() {
 const styles = StyleSheet.create({
   finishLine: {
     position: "absolute",
-    zIndex: -1,
+    // zIndex: -1,
     backgroundColor: "red",
     width: "100%",
     top: 20,

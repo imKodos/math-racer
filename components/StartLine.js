@@ -12,7 +12,7 @@ function StartLine() {
 const styles = StyleSheet.create({
   startLine: {
     position: "absolute",
-    zIndex: -1,
+    // zIndex: -1,
     backgroundColor: "red",
     width: "100%",
     bottom: 20,

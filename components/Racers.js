@@ -15,7 +15,7 @@ function Racers(props) {
           
         </Text>
       </View>
-      <Ghost></Ghost>
+      <Ghost curLevel={props.curLevel}></Ghost>
       <P1 curLevel={props.curLevel}></P1>
       {/* <P2></P2> */}
     </View>

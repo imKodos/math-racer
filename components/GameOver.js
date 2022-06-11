@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+
 
 function GameOver(props) {
   return (
@@ -7,15 +8,16 @@ function GameOver(props) {
       <View style={styles.gameOverTextContainer}>
         <Text style={styles.gameOverText}>Game Over</Text>
         <View style={styles.statsContainer}>
-          <Text style={styles.statsText}>Level: x</Text>
-          <Text style={styles.statsText}>Time:</Text>
+          <Text style={styles.statsText}>Level: {props.curLevel}</Text>
+          <Text style={styles.statsText}>Time: {props.seconds}</Text>
           <Text style={styles.statsText}>Ghost Level:</Text>
         </View>
         <View style={styles.buttonContainer}>
-        <Button style={styles.playAgainButton}
-        title="Play Again"
-        color="white"
-        ></Button>
+         <TouchableOpacity onPress={props.restartGame}>
+            <Text style = {styles.buttonText}>
+               Play Again
+            </Text>
+         </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -65,11 +67,19 @@ const styles = StyleSheet.create({
       width:"60%",
       backgroundColor: "red",
       borderRadius: 10,
-      paddingVertical: 10,
-      paddingHorizontal: 12,
+      paddingVertical: 20,
+      // paddingHorizontal: 15,
+      alignItems:"center",
       alignSelf:"center",
       bottom:"5%"
-  },
+  },  
+   container: {
+    alignItems: 'center',
+ },
+ buttonText: {
+    fontSize: 30,
+    color: "white"
+ }
 });
 
 export default GameOver;

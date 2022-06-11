@@ -1,18 +1,23 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, ImageBackground, View } from "react-native";
 import FinishLine from "./FinishLine";
 import StartLine from "./StartLine";
 
-function Ghost() {
-  const racerLevel = "95%"; //tbd based on which answer the person is
+function Ghost(props) {
+  const racerLevel = getLevelPercent(props.curLevel); //tbd based on which answer the person is
+
+  function getLevelPercent(level){ //if 20 levels, each level is 4.5%
+    const levelPercent=95-(level*4.5);
+    return (levelPercent+"%");
+  }
+
   return (
     <View style={styles.ghostRacerContainer}>
-      <FinishLine />
-      <View style={[styles.ghostRacer, { top: racerLevel }]}></View>
+      {/* <ImageBackground source={require('../assets/greenbg.png')} resizeMode="cover" style={[styles.image]}> */}
       <StartLine />
-      {/* <View style={styles.crowdRight}> */}
-        {/* <Text>{` OR - CROWD - GO - HERE`}</Text> */}
-      {/* </View> */}
+      <View style={[styles.ghostRacer, { top: racerLevel }]}></View>
+      <FinishLine />
+      {/* </ImageBackground> */}
     </View>
   );
 }
@@ -36,6 +41,10 @@ const styles = StyleSheet.create({
     top: 20,
     alignSelf: "flex-end",
     backgroundColor: "yellow",
+  },
+  image: {
+    flex: 1,
+    // justifyContent: "center"
   },
 });
 
